@@ -1,1 +1,13 @@
 streamlit
+pdfplumber
+PyPDF2
+pdf2image
+pillow
+pytesseract
+openai
+requests
+pydantic
+pandas
+#google-cloud-visioncmd
+python-dotenv
+boto3
