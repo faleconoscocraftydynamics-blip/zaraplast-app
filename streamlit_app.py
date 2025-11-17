@@ -4,13 +4,13 @@ from pathlib import Path
 import os
 
 from extractor import extract_text_from_pdf
-from llm_openai import parse_with_openai
-from llm_ama import parse_with_ollama
+#from llm_openai import parse_with_openai
+#from llm_ama import parse_with_ollama
 
 import json
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
-load_dotenv()
+#load_dotenv()
 
 st.set_page_config(page_title="LLM PDF Extractor", layout="wide")
 OUTPUT_DIR = Path("sample_output")
