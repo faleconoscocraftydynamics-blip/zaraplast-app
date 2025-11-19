@@ -3,12 +3,17 @@ import boto3
 from botocore.exceptions import NoCredentialsError, ClientError
 from last_entry import process_last_entry
 
+import os
+
+aws_key = os.environ["AWS_ACCESS_KEY_ID"]
+aws_secret = os.environ["AWS_SECRET_ACCESS_KEY"]
+
 # --- AWS CONFIG ---
 BUCKET_NAME = "apllos-zarplast-poc"
 UPLOAD_PREFIX = "user-files-upload/"  # Folder in S3
 region_name = "us-east-1"
 
-s3_client = boto3.client("s3", region_name = "us-east-1")
+s3_client = boto3.client("s3", region_name = "us-east-1", aws_access_key_id=aws_key, aws_secret_access_key=aws_secret)
 
 # --- Streamlit UI ---
 st.title("ZARAPLAST")
@@ -46,5 +51,6 @@ if uploaded_file is not None:
             st.error(f"❌ AWS Error: {e}")
         except Exception as e:
             st.error(f"❌ Unexpected error: {e}")
+
 
 
