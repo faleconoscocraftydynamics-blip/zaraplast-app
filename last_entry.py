@@ -1,7 +1,11 @@
 import boto3
 import json
 
-s3 = boto3.client("s3", region_name = "us-east-1")
+
+aws_key = os.environ["AWS_ACCESS_KEY_ID"]
+aws_secret = os.environ["AWS_SECRET_ACCESS_KEY"]
+
+s3 = boto3.client("s3", region_name = "us-east-1", aws_access_key_id=aws_key, aws_secret_access_key=aws_secret)
 RESULTS_BUCKET = "apllos-zaraplast-bda-results"
 region_name = "us-east-1"
 
@@ -55,7 +59,7 @@ def read_json_from_s3(bucket, key):
     content = obj["Body"].read().decode("utf-8")
     return json.loads(content)
 
-bedrock_client = boto3.client("bedrock-runtime", region_name = "us-east-1")
+bedrock_client = boto3.client("bedrock-runtime", region_name = "us-east-1", aws_access_key_id=aws_key, aws_secret_access_key=aws_secret)
 
 def send_to_claude(json_payload):
     """
@@ -167,4 +171,5 @@ def process_last_entry(uploaded_filename):
 if __name__ == "__main__":
 
     main()
+
 
