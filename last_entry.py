@@ -3,6 +3,7 @@ import json
 
 s3 = boto3.client("s3")
 RESULTS_BUCKET = "apllos-zaraplast-bda-results"
+region_name = "us-east-1"
 
 import time
 
@@ -164,4 +165,5 @@ def process_last_entry(uploaded_filename):
 
 # Run only when executing python file
 if __name__ == "__main__":
+
     main()
