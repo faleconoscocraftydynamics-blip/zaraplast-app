@@ -1,6 +1,6 @@
 import boto3
 import json
-
+import os
 
 aws_key = os.environ["AWS_ACCESS_KEY_ID"]
 aws_secret = os.environ["AWS_SECRET_ACCESS_KEY"]
@@ -171,5 +171,6 @@ def process_last_entry(uploaded_filename):
 if __name__ == "__main__":
 
     main()
+
 
 
