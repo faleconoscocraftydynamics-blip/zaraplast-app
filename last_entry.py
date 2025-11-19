@@ -1,7 +1,7 @@
 import boto3
 import json
 
-s3 = boto3.client("s3")
+s3 = boto3.client("s3", region_name = "us-east-1")
 RESULTS_BUCKET = "apllos-zaraplast-bda-results"
 region_name = "us-east-1"
 
@@ -55,7 +55,7 @@ def read_json_from_s3(bucket, key):
     content = obj["Body"].read().decode("utf-8")
     return json.loads(content)
 
-bedrock_client = boto3.client("bedrock-runtime")
+bedrock_client = boto3.client("bedrock-runtime", region_name = "us-east-1")
 
 def send_to_claude(json_payload):
     """
@@ -167,3 +167,4 @@ def process_last_entry(uploaded_filename):
 if __name__ == "__main__":
 
     main()
+
