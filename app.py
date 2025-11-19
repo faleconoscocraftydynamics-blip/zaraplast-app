@@ -45,3 +45,4 @@ if uploaded_file is not None:
             st.error(f"❌ AWS Error: {e}")
         except Exception as e:
             st.error(f"❌ Unexpected error: {e}")
+
